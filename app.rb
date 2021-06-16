@@ -1,31 +1,29 @@
-require 'sinatra'
-require 'sinatra/reloader' if development?
+require "sinatra"
+require "sinatra/reloader" if development?
 
-get '/' do
+get "/" do
   "hello!"
 end
 
-get '/hello' do
+get "/hello" do
   "hello back at ya"
 end
 
-get '/thatbread' do
+get "/thatbread" do
   "payday tomorrow"
 end
 
-get '/randomlols' do
+get "/randomlols" do
   @name = ["linkedin", "facebook", "github", "pub"].sample
-  erb(:index)
+  erb :index 
 end
 
-post '/namedlols' do
+post "/namedlols" do
   p params
   @name = params[:name]
   erb :index
 end
 
-get '/formlols' do
+get "/formlols" do
   erb :form
 end
-
-# Sinatra::Reloader
